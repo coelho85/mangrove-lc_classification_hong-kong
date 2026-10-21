@@ -1,0 +1,2 @@
+# Google Earth Engine Code Editor scripts are JavaScript
+*.js linguist-language=JavaScript linguist-detectable=true
