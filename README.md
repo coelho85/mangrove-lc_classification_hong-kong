@@ -34,16 +34,27 @@ Google Earth Engine script that classifies land cover in Hong Kong for 2021 from
    - An elevation threshold of 10 m (DSM) reassigns pixels: woodland, shrubland and grassland at or below 10 m become mangrove, and mangrove, mudflat and marsh above 10 m become shrubland.
    - Tidal ponds are added as class 11.
 
-## Required imports
+## Input variables (imports)
 
-The script expects these assets to be defined as imports in the Earth Engine Code Editor:
+The script expects the following 12 imports to be defined at the top of the Earth Engine Code Editor (**Imports** panel). This is how they appear in the original project:
 
-| Variable | Description |
-|---|---|
-| `aoi` | Hong Kong boundary (FeatureCollection) |
-| `surfaceReflectanceL8` | Landsat 8 Collection 2 Level-2 surface reflectance |
-| `classes_9`, `classes_8_ag` | Training polygons with a `class` property |
-| `global_water` | JRC Global Surface Water |
-| `reservoir_tiff` | Reservoir raster |
-| `dtm_30` | 30 m DSM image collection (`DSM` band) |
-| `tidal_pond` | Tidal pond raster |
+![Earth Engine imports used by the script](images/listOfInputVariables.png)
+
+| Variable | Type | Source / asset | Used in script |
+|---|---|---|---|
+| `surfaceReflectanceL8` | ImageCollection | USGS Landsat 8 Level 2, Collection 2, Tier 1 (`LANDSAT/LC08/C02/T1_L2`) | Yes |
+| `dtm_30` | ImageCollection | ALOS DSM: Global 30m (`JAXA/ALOS/AW3D30/V3_2`), `DSM` band | Yes |
+| `global_water` | Image | JRC Global Surface Water Mapping Layers, v1.3 (`JRC/GSW1_3/GlobalSurfaceWater`), 7 bands | Yes |
+| `aoi` | Table | `users/felipecoelhocosta/hong-kong/AOI_HK_wetland` | Yes |
+| `classes_9` | Table | `users/felipecoelhocosta/hong-kong/classes_merge_9_new` | Yes |
+| `classes_8_ag` | Table | `users/felipecoelhocosta/hong-kong/classes_merge_8_ag` | Yes |
+| `reservoir_tiff` | Image | `users/felipecoelhocosta/hong-kong/reservoir_tiff` (1 band) | Yes |
+| `tidal_pond` | Image | `users/felipecoelhocosta/hong-kong/tidal_pond` (1 band) | Yes |
+| `pond_tiff` | Image | `users/felipecoelhocosta/hong-kong/pond_1003` (1 band) | Commented-out step only |
+| `classes_8` | Table | `users/felipecoelhocosta/hong-kong/classes_merge_8` | No |
+| `classes_8_new` | Table | `users/felipecoelhocosta/hong-kong/classes_merge_8_new` | No |
+| `reservoir` | Table | `users/felipecoelhocosta/hong-kong/reservoir` | No |
+
+The training tables (`classes_*`) need an integer `class` property that matches the class codes above.
+
+The `users/felipecoelhocosta/...` assets are private Earth Engine assets. To run the script, either ask for access to them or replace them with your own AOI, training polygons and rasters, keeping the same variable names.
