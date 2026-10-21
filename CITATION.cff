@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Mangrove and land-cover classification of Hong Kong with Google Earth Engine"
+abstract: >-
+  Google Earth Engine script that classifies land cover in Hong Kong for 2021
+  from a Landsat 8 surface-reflectance median composite and spectral indices
+  (NDVI, NDMI, NDWI, BSI) with a Random Forest classifier, including accuracy
+  assessment and wetland post-processing (JRC Global Surface Water, reservoirs,
+  ALOS DSM elevation threshold and tidal ponds).
+authors:
+  - given-names: Felipe
+    family-names: Coelho Costa
+    email: felipecoelhocosta@gmail.com
+repository-code: "https://github.com/coelho85/mangrove-lc_classification_hong-kong"
+license: MIT
+version: 1.0.0
+date-released: "2026-10-21"
+keywords:
+  - google-earth-engine
+  - remote-sensing
+  - land-cover-classification
+  - mangroves
+  - wetlands
+  - random-forest
+  - landsat-8
+  - hong-kong
