@@ -58,3 +58,7 @@ The script expects the following 12 imports to be defined at the top of the Eart
 The training tables (`classes_*`) need an integer `class` property that matches the class codes above.
 
 The `users/felipecoelhocosta/...` assets are private Earth Engine assets. To run the script, either ask for access to them or replace them with your own AOI, training polygons and rasters, keeping the same variable names.
+
+## License
+
+This project is released under the [MIT License](LICENSE). Third-party datasets (Landsat, ALOS DSM, JRC Global Surface Water) keep their own terms of use.
